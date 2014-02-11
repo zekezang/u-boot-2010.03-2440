@@ -146,9 +146,9 @@ static int display_banner (void)
 	struct s3c24x0_gpio * const gpio = s3c24x0_get_base_gpio();
 	writel(0x101, &gpio->GPBDAT);  //zekezang
 #endif
-	printf ("\n\n%s\n\n", version_string);	
-	printf (" modified by zekezang (zekezang@163.com)\n");
-	printf (" Love Linux forever!!\n\n");
+	printf ("\n\n%s power by zekezang\n", version_string);
+	//printf (" power by zekezang\n");
+	//printf (" Love Linux forever!!\n\n");
 	debug ("U-Boot code: %08lX -> %08lX  BSS: -> %08lX\n",
 	       _armboot_start, _bss_start, _bss_end);
 #ifdef CONFIG_MODEM_SUPPORT
@@ -459,9 +459,9 @@ extern void davinci_eth_set_mac_addr (const u_int8_t *addr);
 #endif
  
 #if defined(CONFIG_CFB_CONSOLE)        
-	printf ("%s\n", version_string);
-	printf ("modified by zekezang\n(zekezang@163.com)\n");
-	printf ("Love Linux forever!!\n");
+	printf ("%s power by zekezang! \n", version_string);
+	//printf ("modified by zekezang\n(zekezang@163.com)\n");
+	//printf ("Love Linux forever!!\n");
 #endif
 	/* main_loop() can return to retry autoboot, if so just run it again. */
 	for (;;) {

@@ -137,18 +137,21 @@
 /* USB Support*/
 
 #define CONFIG_BOOTDELAY	1
-#define CONFIG_BOOTARGS		"noinitrd root=/dev/nfs rw nfsroot=192.168.0.1:/home/tekkaman/working/nfs/rootfs ip=192.168.0.2:192.168.0.1::255.255.255.0 console=ttySAC0,115200 init=/linuxrc mem=64M"
+#define CONFIG_BOOTARGS			"console=ttySAC0 root=/dev/nfs nfsroot=10.0.161.235:/sourcecode/micro2440/rootfs2440/micro2440fs,proto=tcp,nfsvers=3,nolock ip=10.0.161.236:10.0.161.235:10.0.161.254:255.255.255.0:zekezang:eth0:off"
+//#define CONFIG_BOOTARGS		"noinitrd root=/dev/mtdblock3 rootfstype=yaffs2 rw console=ttySAC0,115200 init=/linuxrc mem=64M"
 #define CONFIG_ETHADDR	        08:08:11:18:12:27
 #define CONFIG_NETMASK          255.255.255.0
-#define CONFIG_IPADDR		192.168.0.2
-#define CONFIG_SERVERIP		192.168.0.1
-#define CONFIG_GATEWAYIP	192.168.0.1
+#define CONFIG_IPADDR		10.0.161.236
+#define CONFIG_SERVERIP		10.0.161.235
+#define CONFIG_GATEWAYIP	10.0.161.254
 #define CONFIG_OVERWRITE_ETHADDR_ONCE
 
 /*#define CONFIG_BOOTFILE	"elinos-lart" */
-#define CONFIG_BOOTCOMMAND	"nfs 0x30008000 192.168.0.1:/home/tekkaman/working/nfs/zImage.img;bootm"
-#define	CONFIG_EXTRA_ENV_SETTINGS					\
-	"tekkaman=bmp d 70000\0 "				\
+//#define CONFIG_BOOTCOMMAND	"nand read.i 0x30008000 60000 500000;bootm"
+//#define CONFIG_BOOTCOMMAND	"tftp 0x30008000 uImage;bootm 0x30008000"
+#define CONFIG_BOOTCOMMAND		"nand read 0x30008000 0x80000 0x22e800;bootm 0x30008000"
+//nand write.yaffs 30008000 0x580000 dbb040
+#define	CONFIG_EXTRA_ENV_SETTINGS		\
 	"stdin=serial\0"					\
 	"stdout=serial\0"					\
 	"stderr=serial\0"					\
@@ -164,7 +167,7 @@
  * Miscellaneous configurable options
  */
 #define	CONFIG_SYS_LONGHELP				/* undef to save memory		*/
-#define	CONFIG_SYS_PROMPT		"[u-boot@MICRO2440]# "	/* Monitor Command Prompt	*/
+#define	CONFIG_SYS_PROMPT		"[zekezang@MICRO2440]# "	/* Monitor Command Prompt	*/
 #define	CONFIG_SYS_CBSIZE		256		/* Console I/O Buffer Size	*/
 #define	CONFIG_SYS_PBSIZE (CONFIG_SYS_CBSIZE+sizeof(CONFIG_SYS_PROMPT)+16) /* Print Buffer Size */
 #define	CONFIG_SYS_MAXARGS		16		/* max number of command args	*/

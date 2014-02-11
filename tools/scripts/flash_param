@@ -46,7 +46,7 @@ in 10 =>
 #out setenv bootargs root=/dev/ram ramdisk_size=8192 init=/sbin/init ip=\%1:192.168.1.100:192.168.1.254:255.255.255.0\13
 #out setenv bootargs root=/dev/ram ramdisk_size=8192 init=/sbin/init ip=\%1:192.168.0.1\13
 #out setenv bootargs root=/dev/ram ramdisk_size=8192 init=/sbin/init ip=\%1\13
-out setenv bootargs console=/dev/ttyS0,115200 root=/dev/nfs nfsroot=192.168.1.26:/eric_root_devel ip=\%1:192.168.1.26\13
+#out setenv bootargs console=/dev/ttyS0,115200 root=/dev/nfs nfsroot=192.168.1.26:/eric_root_devel ip=\%1:192.168.1.26\13
 in 10 =>
 out setenv bootcmd bootm FFC00000\13
 in 10 =>
